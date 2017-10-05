@@ -1,0 +1,29 @@
+<center>
+
+<p id="notice"><%= notice %></p>
+
+<h1>Recipes</h1>
+
+<br>
+  
+<% @recipes.each do |recipe| %>
+   <div class="jumbotron" style="max-width: 600px">
+     <h1><%= recipe.title %></h1>
+     <p><%= recipe.category %></p>
+     <p><%= recipe.body %></p>
+     <p><%= recipe.ingredients %></p>
+     <h5>Posted by <%= recipe.user %></h5>
+     <div class="change_recipe">
+       <%= link_to 'Show', recipe, class: "btn btn-primary btn-sm" %>
+       <%= link_to 'Edit', edit_recipe_path(recipe), class: "btn btn-primary btn-sm" %>
+       <%= link_to 'Destroy', recipe, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary btn-sm" %>
+     </div>
+  </div>
+<% end %>
+
+
+<br>
+
+<%= link_to 'New Recipe', new_recipe_path %>
+
+</center>
