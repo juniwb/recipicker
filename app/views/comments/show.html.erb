@@ -1,3 +1,5 @@
+<div class="container">
+
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -17,7 +19,6 @@
 
 <%= link_to 'Edit', edit_comment_path(@comment) %> |
 <%= link_to 'Back', comments_path %>
-
 
 
 <p id="notice"><%= notice %></p>
@@ -41,3 +42,5 @@
   <% @comments.each do |comment| %>
     <h4><%= comment.body %> posted by <%= comment.user.email %></h4>
   <% end %>
+  
+</div>

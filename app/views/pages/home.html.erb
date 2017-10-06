@@ -1,16 +1,16 @@
 
-<center>
-    
-    <h1>Recipicker</h1>
-    <p>This website helps you decide what recipe to make by showing you recipes that match the groceries you have in your fridge at this very moment. 
-    <br>Just plot in your ingredeants in the search field and enjoy!</p>
-    
-    <br>
-    
-    <% if(!user_signed_in?) %>
-    <p>Sign in to see and post recipes</p>
-    <% else %>
-    <p>...</p>
-    <% end %>
-</center>
-
+<header class="header-image">
+    <div class="headline">
+        <div class="container">
+            <h1>Recipicker</h1>
+            <p>This website helps you decide what recipe to make by showing you recipes that match the groceries you have in your fridge at this very moment. 
+            <br>Just plot in your ingredeants in the search field and enjoy!</p>
+            <% if(!user_signed_in?) %>
+            <p>Sign in to see and post recipes</p>
+            <% else %>
+            <%= link_to 'Post a recipe', new_recipe_path, class: 'btn btn-primary btn-lg' %>
+            <%= link_to 'See all recipes', recipes_path, class: 'btn btn-primary btn-lg' %>
+            <% end %>
+        </div>
+    </div>
+</header>
