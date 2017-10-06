@@ -1,31 +1,28 @@
+<center>
+  
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @recipe.title %>
-</p>
 
-<p>
-  <strong>Body:</strong>
-  <%= @recipe.body %>
-</p>
-
-<p>
-  <strong>Ingredients:</strong>
-  <%= @recipe.ingredients %>
-</p>
-
-<p>
-  <strong>Category:</strong>
-  <%= @recipe.category %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @recipe.user.email %>
-</p>
-
-<%= link_to 'Post a Comment', new_recipe_comment_path(@recipe) %>
-  <% @comments.each do |comment| %>
-    <h4><%= comment.body %> posted by <%= comment.user.email %></h4>
+<div class="jumbotron" style="max-width: 800px">
+     <h2><%= @recipe.title %></h2>
+     <p><%= @recipe.category %></p>
+     <p><%= @recipe.body %></p>
+     <p><%= @recipe.ingredients %></p>
+     <h5>Posted by <%= @recipe.user.email %></h5>
+     <div class="change_recipe">
+       <%= link_to 'Show', @recipe, class: "btn btn-primary btn-sm" %>
+       <%= link_to 'Edit', edit_recipe_path(@recipe), class: "btn btn-primary btn-sm" %>
+       <%= link_to 'Destroy', @recipe, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary btn-sm" %>
+       <%= link_to 'Post a Comment', new_recipe_comment_path(@recipe), class: "btn btn-primary btn-sm" %>
+       
+       <br><br>
+       
+       <h4>Comments to this recipe:</h4>
+       <% @comments.each do |comment| %>
+       <h5><%= comment.body %> posted by <%= comment.user.email %></h5>
   <% end %>
+     </div>
+
+</center>
+     
+     
