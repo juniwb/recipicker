@@ -7,13 +7,14 @@
 <br>
   
 <% @recipes.each do |recipe| %>
-   <div class="jumbotron" style="max-width: 600px">
-     <h1><%= recipe.title %></h1>
+   <div class="jumbotron" style="max-width: 800px">
+     <h2><%= recipe.title %></h2>
      <p><%= recipe.category %></p>
      <p><%= recipe.body %></p>
      <p><%= recipe.ingredients %></p>
-     <h5>Posted by <%= recipe.user %></h5>
+     <h5>Posted by <%= recipe.user.email %></h5>
      <div class="change_recipe">
+         <%= link_to 'Comment', root_path, class: "btn btn-primary btn-sm" %>
        <%= link_to 'Show', recipe, class: "btn btn-primary btn-sm" %>
        <%= link_to 'Edit', edit_recipe_path(recipe), class: "btn btn-primary btn-sm" %>
        <%= link_to 'Destroy', recipe, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary btn-sm" %>

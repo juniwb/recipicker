@@ -5,12 +5,14 @@ class RecipesController < ApplicationController
   # GET /recipes
   # GET /recipes.json
   def index
-    @recipes = Recipe.all
+    @recipes = Recipe.all.reverse_order
   end
 
   # GET /recipes/1
   # GET /recipes/1.json
   def show
+    recipe = Recipe.find(params[:id])
+    @comments = recipe.comments.reverse_order
   end
 
   # GET /recipes/new

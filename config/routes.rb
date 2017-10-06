@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
-  resources :recipes
+
+  
   devise_for :users
   root 'pages#home'
+  
+  resources :recipes do
+    resources :comments
+  end
 end
